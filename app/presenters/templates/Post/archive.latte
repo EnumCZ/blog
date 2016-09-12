@@ -1,0 +1,14 @@
+{block title}
+	Archív
+{/block}
+
+{block content}
+<h1>Archív</h1>
+
+{foreach $categories as $category}
+	<h3 id={$category->name|webalize}>{$category->name}</h3>
+	{foreach $category->posts as $post}
+		<a href={link Post:default $post->slug}><strong>{$post->title}</strong></a> ({$post->date|date:'F j, Y'})<br>
+	{/foreach}
+	<hr>
+{/foreach}

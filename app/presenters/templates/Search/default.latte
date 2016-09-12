@@ -1,0 +1,26 @@
+{block title}
+	Hledat
+{/block}
+
+{block content}
+
+<h1>Vyhledávání</h1>
+
+{if count($posts) == 0}
+	<b>Žádné články neodpovídají Vašemu hledání</b>
+{/if}
+
+{foreach $posts as $post}
+	<div class="row">
+        <div class="col-md-8">
+        <div class="post">
+          <h3><a href={link Post:default $post->slug}>{$post->title}</a></h3>
+          {$post->body|noescape|truncate:1000|texy}
+          <a href="#">{$post->category->name}</a> |
+          <a href={link Post:default $post->slug}>Číst více</a>
+        </div>
+    	</div>
+    </div>
+
+    <hr>
+{/foreach}

@@ -1,0 +1,29 @@
+{block title}
+	Kategorie
+{/block}
+
+{block content}
+<h1>Kategorie</h1>
+
+<a href={link Admin:addCategory}>Přidat kategorii</a>
+
+<table class = "table">
+   <thead>
+      <tr>
+         <th>Jméno</th>
+         <th>Popis</th>
+      </tr>
+   </thead>
+
+   <tbody>
+	{foreach $categories as $category}
+
+		<tr>
+         <td>{$category->name}</td>
+         <td>{$category->description}</td>
+         <td><a href={link editCategory $category->id}>Upravit</a> | <a href={link deleteCategory! $category->id}>Smazat</a></td>
+      	</tr>
+
+	{/foreach}
+	<tbody>
+</table>

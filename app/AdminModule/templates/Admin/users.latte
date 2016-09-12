@@ -1,0 +1,30 @@
+{block title}
+	Uživatelé
+{/block}
+
+{block content}
+
+<h1>Uživatelé</h1>
+
+<a href={link Admin:addUser}>Přidat uživatele</a>
+
+<table class = "table">
+   <thead>
+      <tr>
+         <th>Jméno</th>
+         <th>Role</th>
+      </tr>
+   </thead>
+
+   <tbody>
+	{foreach $users as $usr}
+
+		<tr>
+         <td>{$usr->username}</td>
+         <td>{$usr->role}</td>
+         <td><a href={link Admin:editUser $usr->id}>Upravit</a> | <a href={link deleteUser! $usr->id}>Smazat</a></td>
+      	</tr>
+
+	{/foreach}
+	<tbody>
+</table>

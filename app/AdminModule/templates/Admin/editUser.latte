@@ -1,0 +1,14 @@
+{block title}
+	Upravit uživatele
+{/block}
+
+{block content}
+<h1>Informace o uživateli</h1>
+
+<b>Jméno: </b> {$user_info->username} <br>
+<b>Role: </b> {$user_info->role}
+
+<hr>
+
+<h1>Změnit heslo</h1>
+{control passwordChangeForm}

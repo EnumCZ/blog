@@ -1,0 +1,28 @@
+{block title}
+   Články
+{/block}
+
+{block content}
+
+<h1>Články</h1>
+
+<a href={link Admin:addPost}>Přidat článek</a>
+
+<table class = "table">
+   <thead>
+      <tr>
+         <th>Nadpis</th>
+      </tr>
+   </thead>
+
+   <tbody>
+	{foreach $posts as $post}
+
+		<tr>
+         <td>{$post->title}</td>
+         <td><a href={link Admin:editPost $post->id}>Upravit</a> | <a href={link deletePost! $post->id}>Smazat</a></td>
+      	</tr>
+
+	{/foreach}
+	<tbody>
+</table>
