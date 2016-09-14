@@ -86,9 +86,7 @@ class PostForm extends \Nette\Application\UI\Control
 
 
 	public function postFormSucceeded($form, $values) 
-	{	
-
-		$category = $this->categories->findOneBy(['name' => $values->category]);
+	{
 
 		// novy post
 		if(!$this->post) {
@@ -97,8 +95,9 @@ class PostForm extends \Nette\Application\UI\Control
 
 			$post->title = $values->title;
 			$post->body = $values->body;
-			$post->category = $category;
+			$post->category = $this->categories->findOneBy(['name' => $values->category]);
 			$post->slug = Strings::webalize($values->title);
+			$post->date = new \DateTime();
 			$post->disable_comments = $values->disable_comments;
 
 			$this->em->persist($post);
@@ -111,10 +110,8 @@ class PostForm extends \Nette\Application\UI\Control
 
 			$post->title = $values->title;
 			$post->body = $values->body;
-			$post->category = $category;
+			$post->category = $this->categories->findOneBy(['name' => $values->category]);
 			$post->slug = Strings::webalize($values->title);
-			// datum se nemeni pri updatu
-			$post->date = $post->date;
 			$post->disable_comments = $values->disable_comments;
 
 			$this->em->flush();

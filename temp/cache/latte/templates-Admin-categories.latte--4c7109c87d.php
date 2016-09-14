@@ -32,7 +32,7 @@ class Template4c7109c87d extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['category'])) trigger_error('Variable $category overwritten in foreach on line 19');
+		if (isset($this->params['category'])) trigger_error('Variable $category overwritten in foreach on line 20');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -58,6 +58,7 @@ class Template4c7109c87d extends Latte\Runtime\Template
       <tr>
          <th>Jméno</th>
          <th>Popis</th>
+         <th>Akce</th>
       </tr>
    </thead>
 
@@ -68,8 +69,8 @@ class Template4c7109c87d extends Latte\Runtime\Template
 ?>
 
 		<tr>
-         <td><?php echo LR\Filters::escapeHtmlText($category->name) /* line 22 */ ?></td>
-         <td><?php echo LR\Filters::escapeHtmlText($category->description) /* line 23 */ ?></td>
+         <td><?php echo LR\Filters::escapeHtmlText($category->name) /* line 23 */ ?></td>
+         <td><?php echo LR\Filters::escapeHtmlText($category->description) /* line 24 */ ?></td>
          <td><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("editCategory", [$category->id])) ?>>Upravit</a> | <a href=<?php
 			echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("deleteCategory!", [$category->id])) ?>>Smazat</a></td>
       	</tr>

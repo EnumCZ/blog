@@ -65,8 +65,13 @@ class Template1f65ccdd1f extends Latte\Runtime\Template
             <li><?php
 		/* line 51 */
 		echo Nette\Bridges\FormsLatte\Runtime::renderFormBegin($form = $_form = $this->global->formsStack[] = $this->global->uiControl["searchForm"], ['class' => "navbar-form navbar-left"]);
-		?> <?php echo end($this->global->formsStack)["search"]->getControl()->addAttributes(['class' => "form-control"]) /* line 51 */ ?> <?php
-		echo end($this->global->formsStack)["send"]->getControl()->addAttributes(['class' => "btn btn-default"]) /* line 51 */ ?> <?php
+?>
+
+             <?php echo end($this->global->formsStack)["word"]->getControl()->addAttributes(['class' => "form-control"]) /* line 52 */ ?>
+
+             <?php echo end($this->global->formsStack)["send"]->getControl()->addAttributes(['class' => "btn btn-default"]) /* line 53 */ ?>
+
+             <?php
 		echo Nette\Bridges\FormsLatte\Runtime::renderFormEnd(array_pop($this->global->formsStack));
 ?></li>
           </ul>

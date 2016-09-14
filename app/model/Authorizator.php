@@ -17,16 +17,12 @@ class Authorizator implements Nette\Security\IAuthorizator
 
 		// role
 		$acl->addRole('guest');
-		$acl->addRole('publisher', 'guest'); // publisher dědí od guest
-		$acl->addRole('admin', 'publisher'); // a od něj dědí admin
+		$acl->addRole('admin', 'guest');
 
 		// zdroje
 		$acl->addResource('Admin');
-		$acl->addResource('Post');
-		$acl->addResource('Comment');
 
 		// pravidla
-		$acl->allow('publisher', 'Post', 'create');
 		$acl->allow('admin', Permission::ALL, Permission::ALL);
 
 		$this->acl = $acl;

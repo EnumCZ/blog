@@ -21,6 +21,10 @@ class Template806450b3fc extends Latte\Runtime\Template
 		extract($this->params);
 		if ($this->getParentName()) return get_defined_vars();
 		$this->renderBlock('title', get_defined_vars());
+?>
+
+<?php
+		$this->renderBlock('content', get_defined_vars());
 		return get_defined_vars();
 	}
 
@@ -35,13 +39,8 @@ class Template806450b3fc extends Latte\Runtime\Template
 
 	function blockTitle($_args)
 	{
-		extract($_args);
-?>
-	Vytvořit uživatele
-
+?>	Vytvořit uživatele
 <?php
-		$this->renderBlock('content', get_defined_vars());
-		
 	}
 
 

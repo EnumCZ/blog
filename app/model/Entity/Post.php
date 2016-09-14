@@ -35,19 +35,13 @@ class Post extends BaseEntity
 
 
     /**
-    * @ORM\Column(type="string", nullable=TRUE) 
-    */
-    protected $author;
-
-
-    /**
     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts") 
     */
     protected $category;
 
 
     /**
-    * @ORM\Column(type="datetime", nullable=FALSE, options={"default"="CURRENT_TIMESTAMP"})
+    * @ORM\Column(type="datetime")
     */
     protected $date;
 

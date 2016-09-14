@@ -12,7 +12,7 @@ class SignPresenter extends BasePresenter
 	/**
 	* @persistent 
 	*/
-	public $backlink = '';
+	public $backlink = NULL;
 
 
 	/**
@@ -36,7 +36,11 @@ class SignPresenter extends BasePresenter
 		$form = $this->loginForm->create();
 
 		$form->onLogin[] = function () {
-            $this->restoreRequest($this->backlink);
+			if($this->backlink) {
+            	$this->restoreRequest($this->backlink);
+			} else {
+				$this->redirect('Admin:Admin:default');
+			}
         };
 
 		return $form;

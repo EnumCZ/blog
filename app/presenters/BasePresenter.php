@@ -36,7 +36,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		$form = new Form;
 
-		$form->addText('search');
+		$form->addText('word')
+			->setRequired();
 		$form->addSubmit('send', 'Hledat');
 
 		$form->onSuccess[] = [$this, 'searchFormSucceeded'];
@@ -47,7 +48,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function searchFormSucceeded($form, $values)
 	{
-		$this->redirect('Search:default', $values->search);
+		$this->redirect('Search:default', $values->word);
 	}
 
 }

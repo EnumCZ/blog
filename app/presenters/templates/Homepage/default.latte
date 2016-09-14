@@ -10,7 +10,7 @@
         <div class="post">
           <h3><a href={link Post:default $post->slug}>{$post->title}</a></h3>
           {$post->body|noescape|truncate:1000|texy}
-          <a href="{link Post:archive}#{$post->category->name|webalize}">{$post->category->name}</a> |
+          <b>Kategorie:</b> <a href="{link Post:archive}#{$post->category->name|webalize}">{$post->category->name}</a> |
           <a href={link Post:default $post->slug}>Číst více</a>
         </div>
     	</div>

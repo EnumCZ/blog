@@ -32,7 +32,7 @@ class Templatebea2f1dd0d extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['post'])) trigger_error('Variable $post overwritten in foreach on line 19');
+		if (isset($this->params['post'])) trigger_error('Variable $post overwritten in foreach on line 20');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -58,6 +58,7 @@ class Templatebea2f1dd0d extends Latte\Runtime\Template
    <thead>
       <tr>
          <th>Nadpis</th>
+         <th>Akce</th>
       </tr>
    </thead>
 
@@ -68,7 +69,7 @@ class Templatebea2f1dd0d extends Latte\Runtime\Template
 ?>
 
 		<tr>
-         <td><?php echo LR\Filters::escapeHtmlText($post->title) /* line 22 */ ?></td>
+         <td><?php echo LR\Filters::escapeHtmlText($post->title) /* line 23 */ ?></td>
          <td><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Admin:editPost", [$post->id])) ?>>Upravit</a> | <a href=<?php
 			echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("deletePost!", [$post->id])) ?>>Smazat</a></td>
       	</tr>

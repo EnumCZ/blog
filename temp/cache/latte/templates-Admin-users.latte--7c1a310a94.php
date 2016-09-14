@@ -32,7 +32,7 @@ class Template7c1a310a94 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['usr'])) trigger_error('Variable $usr overwritten in foreach on line 20');
+		if (isset($this->params['usr'])) trigger_error('Variable $usr overwritten in foreach on line 21');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -59,6 +59,7 @@ class Template7c1a310a94 extends Latte\Runtime\Template
       <tr>
          <th>Jméno</th>
          <th>Role</th>
+         <th>Akce</th>
       </tr>
    </thead>
 
@@ -69,8 +70,8 @@ class Template7c1a310a94 extends Latte\Runtime\Template
 ?>
 
 		<tr>
-         <td><?php echo LR\Filters::escapeHtmlText($usr->username) /* line 23 */ ?></td>
-         <td><?php echo LR\Filters::escapeHtmlText($usr->role) /* line 24 */ ?></td>
+         <td><?php echo LR\Filters::escapeHtmlText($usr->username) /* line 24 */ ?></td>
+         <td><?php echo LR\Filters::escapeHtmlText($usr->role) /* line 25 */ ?></td>
          <td><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Admin:editUser", [$usr->id])) ?>>Upravit</a> | <a href=<?php
 			echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("deleteUser!", [$usr->id])) ?>>Smazat</a></td>
       	</tr>

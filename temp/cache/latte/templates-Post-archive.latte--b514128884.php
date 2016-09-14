@@ -32,7 +32,7 @@ class Templateb514128884 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['post'])) trigger_error('Variable $post overwritten in foreach on line 10');
+		if (isset($this->params['post'])) trigger_error('Variable $post overwritten in foreach on line 11');
 		if (isset($this->params['category'])) trigger_error('Variable $category overwritten in foreach on line 8');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
@@ -55,15 +55,17 @@ class Templateb514128884 extends Latte\Runtime\Template
 <?php
 		$iterations = 0;
 		foreach ($categories as $category) {
-			?>	<h3 id=<?php echo LR\Filters::escapeHtmlAttrUnquoted(call_user_func($this->filters->webalize, $category->name)) /* line 9 */ ?>><?php
-			echo LR\Filters::escapeHtmlText($category->name) /* line 9 */ ?></h3>
+			if ((count($category->posts) > 0)) {
+				?>		<h3 id=<?php echo LR\Filters::escapeHtmlAttrUnquoted(call_user_func($this->filters->webalize, $category->name)) /* line 10 */ ?>><?php
+				echo LR\Filters::escapeHtmlText($category->name) /* line 10 */ ?></h3>
 <?php
-			$iterations = 0;
-			foreach ($category->posts as $post) {
-				?>		<a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Post:default", [$post->slug])) ?>><strong><?php
-				echo LR\Filters::escapeHtmlText($post->title) /* line 11 */ ?></strong></a> (<?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $post->date, 'F j, Y')) /* line 11 */ ?>)<br>
+				$iterations = 0;
+				foreach ($category->posts as $post) {
+					?>			<a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Post:default", [$post->slug])) ?>><strong><?php
+					echo LR\Filters::escapeHtmlText($post->title) /* line 12 */ ?></strong></a> (<?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $post->date, 'F j, Y')) /* line 12 */ ?>)<br>
 <?php
-				$iterations++;
+					$iterations++;
+				}
 			}
 ?>
 	<hr>

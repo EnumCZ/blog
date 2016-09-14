@@ -61,7 +61,7 @@ class Templatef77e13c1ff extends Latte\Runtime\Template
 			echo LR\Filters::escapeHtmlText($post->title) /* line 11 */ ?></a></h3>
           <?php echo call_user_func($this->filters->texy, call_user_func($this->filters->truncate, $post->body, 1000)) /* line 12 */ ?>
 
-          <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Post:archive")) ?>#<?php
+          <b>Kategorie:</b> <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Post:archive")) ?>#<?php
 			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl(call_user_func($this->filters->webalize, $post->category->name))) /* line 13 */ ?>"><?php
 			echo LR\Filters::escapeHtmlText($post->category->name) /* line 13 */ ?></a> |
           <a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Post:default", [$post->slug])) ?>>Číst více</a>

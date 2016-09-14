@@ -93,7 +93,7 @@ class AdminPresenter extends BasePresenter
 	{
 		parent::startup();
 
-		if(!$this->getUser()->isAllowed('Admin', 'read')){
+		if(!$this->getUser()->isAllowed('Admin', 'admin')){
 			$this->redirect(':Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 	}
@@ -162,6 +162,7 @@ class AdminPresenter extends BasePresenter
 			$this->error('Uživatel nenalezen');
 		}
 	}
+	
 
 	/**
 	* @secured
@@ -178,6 +179,7 @@ class AdminPresenter extends BasePresenter
 			$this->error('Článek nenalezen');
 		}
 	}
+
 
 	/**
 	* @secured

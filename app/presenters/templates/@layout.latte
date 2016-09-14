@@ -48,7 +48,10 @@
             <li><a href={link Post:archive}>Archív</a></li>
             <li><a href="/about">O mně</a></li>
             <li><a href="/cv">CV</a></li>
-            <li>{form searchForm class => "navbar-form navbar-left"} {input search class => "form-control"} {input send class => "btn btn-default"} {/}</li>
+            <li>{form searchForm class => "navbar-form navbar-left"}
+             {input word class => "form-control"}
+             {input send class => "btn btn-default"} 
+             {/}</li>
           </ul>
           {if ($user->isLoggedIn())}
           <ul class="nav navbar-nav navbar-right">
