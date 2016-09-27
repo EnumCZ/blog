@@ -1,1 +1,0 @@
-<?php //netteCache[01]000248a:3:{s:4:"time";s:21:"0.11046900 1472891044";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"/home/radek/MEGA/projects/blog/app/model/Entity/Post.php";i:2;i:1472809035;}}s:10:"serialized";b:1;}?>a:1:{i:0;O:27:"Doctrine\ORM\Mapping\Entity":2:{s:15:"repositoryClass";N;s:8:"readOnly";b:0;}}
