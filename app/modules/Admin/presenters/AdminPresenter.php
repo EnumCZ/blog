@@ -225,7 +225,7 @@ class AdminPresenter extends \App\Module\Base\Presenters\BasePresenter
 		}
 
 		$form->onPost[] = function() {
-			$this->redirect(':Homepage:default');
+			$this->redirect(':Frontend:Homepage:default');
 		};
 
 		return $form;

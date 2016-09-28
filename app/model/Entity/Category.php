@@ -26,19 +26,49 @@ class Category extends BaseEntity
     /**
     * @ORM\Column(type="string") 
     */
-    protected $name;
+    private $name;
 
 
     /**
     * @ORM\Column(type="string") 
     */
-    protected $description;
+    private $description;
 
 
     /**
     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
     * @ORM\OrderBy({"date" = "DESC"})
     */
-    protected $posts;
+    private $posts;
+
+
+    public function getName() {
+        return $this->name;
+    }
+
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+
+    public function getPosts() {
+        return $this->posts;
+    }
+
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+
+    public function setPosts($posts) {
+        $this->posts = $posts;
+    }
 
 }

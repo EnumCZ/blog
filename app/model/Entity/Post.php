@@ -19,36 +19,96 @@ class Post extends BaseEntity
     /**
     * @ORM\Column(type="string", unique=TRUE) 
     */
-    protected $slug;
+    private $slug;
 
 
     /**
     * @ORM\Column(type="text") 
     */
-    protected $title;
+    private $title;
 
 
     /**
     * @ORM\Column(type="text") 
     */
-    protected $body;
+    private $body;
 
 
     /**
     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts") 
     */
-    protected $category;
+    private $category;
 
 
     /**
     * @ORM\Column(type="datetime")
     */
-    protected $date;
+    private $date;
 
 
     /**
     * @ORM\Column(type="boolean", nullable=FALSE)
     */
-    protected $disable_comments;
+    private $disable_comments;
+
+
+    public function getSlug() {
+        return $this->slug;
+    }
+
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+
+    public function getBody() {
+        return $this->body;
+    }
+
+
+    public function getCategory() {
+        return $this->category;
+    }
+
+
+    public function getDate() {
+        return $this->date;
+    }
+
+
+    public function getDisable_comments() {
+        return $this->disable_comments;
+    }
+
+
+    public function setSlug($slug) {
+        $this->slug = $slug;
+    }
+
+
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+
+    public function setBody($body) {
+        $this->body = $body;
+    }
+
+
+    public function setCategory($category) {
+        $this->category = $category;
+    }
+
+
+    public function setDate($date) {
+        $this->date = $date;
+    }
+
+
+    public function setDisable_comments($disable_comments) {
+        $this->disable_comments = $disable_comments;
+    }
 
 }
