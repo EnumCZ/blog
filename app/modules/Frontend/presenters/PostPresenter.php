@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Module\Frontend\Presenters;
 
 use Nette;
 use App\Model\Repository;
@@ -8,7 +8,7 @@ use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityDao;
 
 
-class PostPresenter extends BasePresenter
+class PostPresenter extends \App\Module\Base\Presenters\BasePresenter
 {
 
 	/**

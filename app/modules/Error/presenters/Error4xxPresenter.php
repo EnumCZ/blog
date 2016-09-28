@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Module\Error\Presenters;
 
 use Nette;
 
 
-class Error4xxPresenter extends BasePresenter
+class Error4xxPresenter extends \App\Module\Base\Presenters\BasePresenter
 {
 
 	public function startup()

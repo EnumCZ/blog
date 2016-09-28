@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminModule\Presenters;
+namespace App\Module\Admin\Presenters;
 
 
 use Component\IPostFormFactory;
@@ -12,7 +12,7 @@ use Kdyby\Doctrine\EntityDao;
 use App\Model\Repository;
 
 
-class AdminPresenter extends BasePresenter
+class AdminPresenter extends \App\Module\Base\Presenters\BasePresenter
 {
 
 	/**
@@ -94,7 +94,7 @@ class AdminPresenter extends BasePresenter
 		parent::startup();
 
 		if(!$this->getUser()->isAllowed('Admin', 'admin')){
-			$this->redirect(':Sign:in', ['backlink' => $this->storeRequest()]);
+			$this->redirect(':Frontend:Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 	}
 

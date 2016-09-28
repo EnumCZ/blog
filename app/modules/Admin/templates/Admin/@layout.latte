@@ -15,14 +15,15 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-   BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
+  
   </head>
 
   <body>
@@ -38,31 +39,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href={link Homepage:default}>Radek Friedl</a>
+          <a class="navbar-brand" href="#">Radek Friedl</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href={link Post:archive}>Archív</a></li>
+            <li><a href={link :Frontend:Post:archive}>Archív</a></li>
             <li><a href="/about">O mně</a></li>
             <li><a href="/cv">CV</a></li>
-            <li>{form searchForm class => "navbar-form navbar-left"}
-             {input word class => "form-control"}
-             {input send class => "btn btn-default"} 
-             {/}</li>
           </ul>
           {if ($user->isLoggedIn())}
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href={link Admin:Admin:posts}>Články</a></li>
-                <li><a href={link Admin:Admin:users}>Uživatelé</a></li>
-                <li><a href={link Admin:Admin:categories}>Kategorie</a></li>
+                <li><a href={link Admin:posts}>Články</a></li>
+                <li><a href={link Admin:users}>Uživatelé</a></li>
+                <li><a href={link Admin:categories}>Kategorie</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href={link Sign:out}>Odhlásit</a></li>
+                <li><a href={link :Frontend:Sign:out}>Odhlásit</a></li>
               </ul>
             </li>
           </ul>
@@ -78,6 +75,7 @@
 
       {include content}
      
+      </div>
 
     </div>
     <!-- end of .container -->

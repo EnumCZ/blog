@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Module\Frontend\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;
 
 
-class SignPresenter extends BasePresenter
+class SignPresenter extends \App\Module\Base\Presenters\BasePresenter
 {
 
 	/**
@@ -39,7 +39,7 @@ class SignPresenter extends BasePresenter
 			if($this->backlink) {
             	$this->restoreRequest($this->backlink);
 			} else {
-				$this->redirect('Admin:Admin:default');
+				$this->redirect(':Admin:Admin:default');
 			}
         };
 

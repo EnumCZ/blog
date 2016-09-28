@@ -1,3 +1,15 @@
+<?php
+// source: /home/radek/MEGA/projects/blog/app/modules/Admin/templates/Admin/@layout.latte
+
+use Latte\Runtime as LR;
+
+class Templateb01bfb4e29 extends Latte\Runtime\Template
+{
+
+	function main()
+	{
+		extract($this->params);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +19,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{include title} | Radek Friedl</title>
+    <title><?php
+		$this->renderBlock('title', $this->params, 'html');
+?> | Radek Friedl</title>
     <!-- CHANGE THIS TITLE FOR EACH PAGE -->
 
     <!-- Bootstrap -->
@@ -46,24 +60,28 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href={link :Post:archive}>Archív</a></li>
+            <li><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link(":Frontend:Post:archive")) ?>>Archív</a></li>
             <li><a href="/about">O mně</a></li>
             <li><a href="/cv">CV</a></li>
           </ul>
-          {if ($user->isLoggedIn())}
+<?php
+		if (($user->isLoggedIn())) {
+?>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href={link Admin:posts}>Články</a></li>
-                <li><a href={link Admin:users}>Uživatelé</a></li>
-                <li><a href={link Admin:categories}>Kategorie</a></li>
+                <li><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Admin:posts")) ?>>Články</a></li>
+                <li><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Admin:users")) ?>>Uživatelé</a></li>
+                <li><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link("Admin:categories")) ?>>Kategorie</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href={link :Sign:out}>Odhlásit</a></li>
+                <li><a href=<?php echo LR\Filters::escapeHtmlAttrUnquoted($this->global->uiControl->link(":Frontend:Sign:out")) ?>>Odhlásit</a></li>
               </ul>
             </li>
           </ul>
-          {/if}
+<?php
+		}
+?>
         </div>
         <!-- /.navbar-collapse -->
       </div>
@@ -73,7 +91,9 @@
     <div class="container">
       <!-- end of header .row -->
 
-      {include content}
+<?php
+		$this->renderBlock('content', $this->params, 'html');
+?>
      
       </div>
 
@@ -82,4 +102,16 @@
 
   </body>
 
-</html>
+</html><?php
+		return get_defined_vars();
+	}
+
+
+	function prepare()
+	{
+		extract($this->params);
+		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
+		
+	}
+
+}

@@ -8,7 +8,7 @@ parameters:
 application:
 	errorPresenter: Error
 	mapping:
-		*: App\*Module\Presenters\*Presenter
+		*: App\Module\*\Presenters\*Presenter
 
 
 session:
@@ -32,8 +32,6 @@ services:
 	- Component\IRegisterFormFactory
 	- Component\IPasswordChangeFormFactory
 	- Component\ICategoryFormFactory
-
-	- App\AdminModule\Presenters\AdminPresenter
 
 	nette.latteFactory:
 		setup:

@@ -17,15 +17,23 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList;
-		$router[] = new Route('about', 'Homepage:about');
-		$router[] = new Route('archive', 'Post:archive');
-		$router[] = new Route('cv', 'Homepage:CV');
+
 		$router[] = new Route('admin[/<action>[/<id>]]', [
 			'module' => 'Admin',
 			'presenter' => 'Admin',
 			'action' => 'default',
 		]);
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+
+		$router[] = new Route('about', 'Frontend:Homepage:about');
+		$router[] = new Route('archive', 'Frontend:Post:archive');
+		$router[] = new Route('cv', 'Frontend:Homepage:CV');
+
+		$router[] = new Route('/', 'Frontend:Homepage:default');
+		$router[] = new Route('post', 'Frontend:Post:default');
+		$router[] = new Route('sign/in', 'Frontend:Sign:in');
+		$router[] = new Route('sign/out', 'Frontend:Sign:out');
+
+		//$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}
 

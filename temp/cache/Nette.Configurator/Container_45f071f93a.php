@@ -67,9 +67,9 @@ class Container_45f071f93a extends Nette\DI\Container
 				],
 				[
 					'doctrine.default.cacheCleaner',
-					'67_App_Model_Repository_Categories',
-					'68_App_Model_Repository_Posts',
-					'69_App_Model_Repository_Users',
+					'66_App_Model_Repository_Categories',
+					'67_App_Model_Repository_Posts',
+					'68_App_Model_Repository_Users',
 				],
 			],
 			'Doctrine\ORM\Repository\RepositoryFactory' => [['doctrine.default.repositoryFactory']],
@@ -152,12 +152,25 @@ class Container_45f071f93a extends Nette\DI\Container
 			'Doctrine\Common\Persistence\ConnectionRegistry' => [1 => ['doctrine.registry']],
 			'Doctrine\Common\Persistence\ManagerRegistry' => [1 => ['doctrine.registry']],
 			'Kdyby\Doctrine\Registry' => [1 => ['doctrine.registry']],
-			'App\AdminModule\Presenters\BasePresenter' => [1 => ['66_App_AdminModule_Presenters_AdminPresenter']],
-			'App\Presenters\BasePresenter' => [
+			'App\Model\Repository\Categories' => [1 => ['66_App_Model_Repository_Categories']],
+			'App\Model\Repository\Posts' => [1 => ['67_App_Model_Repository_Posts']],
+			'App\Model\Repository\Users' => [1 => ['68_App_Model_Repository_Users']],
+			'Component\ICategoryFormFactory' => [1 => ['69_Component_ICategoryFormFactory']],
+			'Component\ILoginFormFactory' => [1 => ['70_Component_ILoginFormFactory']],
+			'Component\IPasswordChangeFormFactory' => [1 => ['71_Component_IPasswordChangeFormFactory']],
+			'Component\IPostFormFactory' => [1 => ['72_Component_IPostFormFactory']],
+			'Component\IRegisterFormFactory' => [1 => ['73_Component_IRegisterFormFactory']],
+			'Nette\DI\CompilerExtension' => [1 => ['visualPaginator']],
+			'IPub\VisualPaginator\DI\VisualPaginatorExtension' => [1 => ['visualPaginator']],
+			'Nette\Security\IAuthenticator' => [1 => ['Authenticator']],
+			'Model\Authenticator' => [1 => ['Authenticator']],
+			'Nette\Security\IAuthorizator' => [1 => ['Authorizator']],
+			'Model\Authorizator' => [1 => ['Authorizator']],
+			'App\Module\Base\Presenters\BasePresenter' => [
 				1 => [
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
@@ -165,62 +178,127 @@ class Container_45f071f93a extends Nette\DI\Container
 			],
 			'Nette\Application\UI\Presenter' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
-					'application.7',
+					'application.8',
 				],
 			],
 			'Nette\Application\UI\Control' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
-					'application.7',
+					'application.8',
 				],
 			],
 			'Nette\Application\UI\Component' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
-					'application.7',
+					'application.8',
 				],
 			],
 			'Nette\ComponentModel\Container' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
-					'application.7',
+					'application.8',
 				],
 			],
 			'Nette\ComponentModel\Component' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
+					'application.3',
 					'application.4',
 					'application.5',
 					'application.6',
-					'application.7',
+					'application.8',
+				],
+			],
+			'Nette\Application\UI\IRenderable' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
+				],
+			],
+			'Nette\ComponentModel\IContainer' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
+				],
+			],
+			'Nette\ComponentModel\IComponent' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
+				],
+			],
+			'Nette\Application\UI\ISignalReceiver' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
+				],
+			],
+			'Nette\Application\UI\IStatePersistent' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
+				],
+			],
+			'ArrayAccess' => [
+				[
+					'application.1',
+					'application.2',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+					'application.8',
 				],
 			],
 			'Nette\Application\IPresenter' => [
 				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
 					'application.1',
 					'application.2',
 					'application.3',
@@ -230,124 +308,45 @@ class Container_45f071f93a extends Nette\DI\Container
 					'application.7',
 					'application.8',
 					'application.9',
+					'application.10',
 				],
 			],
-			'ArrayAccess' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'Nette\Application\UI\IStatePersistent' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'Nette\Application\UI\ISignalReceiver' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'Nette\ComponentModel\IComponent' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'Nette\ComponentModel\IContainer' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'Nette\Application\UI\IRenderable' => [
-				[
-					'66_App_AdminModule_Presenters_AdminPresenter',
-					'application.1',
-					'application.2',
-					'application.4',
-					'application.5',
-					'application.6',
-					'application.7',
-				],
-			],
-			'App\AdminModule\Presenters\AdminPresenter' => [1 => ['66_App_AdminModule_Presenters_AdminPresenter']],
-			'App\Model\Repository\Categories' => [1 => ['67_App_Model_Repository_Categories']],
-			'App\Model\Repository\Posts' => [1 => ['68_App_Model_Repository_Posts']],
-			'App\Model\Repository\Users' => [1 => ['69_App_Model_Repository_Users']],
-			'Component\ICategoryFormFactory' => [1 => ['70_Component_ICategoryFormFactory']],
-			'Component\ILoginFormFactory' => [1 => ['71_Component_ILoginFormFactory']],
-			'Component\IPasswordChangeFormFactory' => [1 => ['72_Component_IPasswordChangeFormFactory']],
-			'Component\IPostFormFactory' => [1 => ['73_Component_IPostFormFactory']],
-			'Component\IRegisterFormFactory' => [1 => ['74_Component_IRegisterFormFactory']],
-			'Nette\DI\CompilerExtension' => [1 => ['visualPaginator']],
-			'IPub\VisualPaginator\DI\VisualPaginatorExtension' => [1 => ['visualPaginator']],
-			'Nette\Security\IAuthenticator' => [1 => ['Authenticator']],
-			'Model\Authenticator' => [1 => ['Authenticator']],
-			'Nette\Security\IAuthorizator' => [1 => ['Authorizator']],
-			'Model\Authorizator' => [1 => ['Authorizator']],
-			'App\Presenters\SearchPresenter' => [1 => ['application.1']],
-			'App\Presenters\Error4xxPresenter' => [1 => ['application.2']],
-			'App\Presenters\ErrorPresenter' => [1 => ['application.3']],
-			'App\Presenters\HomepagePresenter' => [1 => ['application.4']],
-			'App\Presenters\PostPresenter' => [1 => ['application.5']],
-			'App\Presenters\SignPresenter' => [1 => ['application.6']],
-			'KdybyModule\CliPresenter' => [1 => ['application.7']],
-			'NetteModule\ErrorPresenter' => [1 => ['application.8']],
-			'NetteModule\MicroPresenter' => [1 => ['application.9']],
+			'App\Module\Admin\Presenters\AdminPresenter' => [1 => ['application.1']],
+			'App\Module\Frontend\Presenters\SearchPresenter' => [1 => ['application.2']],
+			'App\Module\Frontend\Presenters\HomepagePresenter' => [1 => ['application.3']],
+			'App\Module\Frontend\Presenters\PostPresenter' => [1 => ['application.4']],
+			'App\Module\Frontend\Presenters\SignPresenter' => [1 => ['application.5']],
+			'App\Module\Error\Presenters\Error4xxPresenter' => [1 => ['application.6']],
+			'App\Module\Error\Presenters\ErrorPresenter' => [1 => ['application.7']],
+			'KdybyModule\CliPresenter' => [1 => ['application.8']],
+			'NetteModule\ErrorPresenter' => [1 => ['application.9']],
+			'NetteModule\MicroPresenter' => [1 => ['application.10']],
 			'Nette\DI\Container' => [1 => ['container']],
 		],
 		'services' => [
-			'66_App_AdminModule_Presenters_AdminPresenter' => 'App\AdminModule\Presenters\AdminPresenter',
-			'67_App_Model_Repository_Categories' => 'App\Model\Repository\Categories',
-			'68_App_Model_Repository_Posts' => 'App\Model\Repository\Posts',
-			'69_App_Model_Repository_Users' => 'App\Model\Repository\Users',
-			'70_Component_ICategoryFormFactory' => 'Component\CategoryForm',
-			'71_Component_ILoginFormFactory' => 'Component\LoginForm',
-			'72_Component_IPasswordChangeFormFactory' => 'Component\PasswordChangeForm',
-			'73_Component_IPostFormFactory' => 'Component\PostForm',
-			'74_Component_IRegisterFormFactory' => 'Component\RegisterForm',
+			'66_App_Model_Repository_Categories' => 'App\Model\Repository\Categories',
+			'67_App_Model_Repository_Posts' => 'App\Model\Repository\Posts',
+			'68_App_Model_Repository_Users' => 'App\Model\Repository\Users',
+			'69_Component_ICategoryFormFactory' => 'Component\CategoryForm',
+			'70_Component_ILoginFormFactory' => 'Component\LoginForm',
+			'71_Component_IPasswordChangeFormFactory' => 'Component\PasswordChangeForm',
+			'72_Component_IPostFormFactory' => 'Component\PostForm',
+			'73_Component_IRegisterFormFactory' => 'Component\RegisterForm',
 			'Authenticator' => 'Model\Authenticator',
 			'Authorizator' => 'Model\Authorizator',
 			'annotations.cache.annotations' => 'Doctrine\Common\Cache\Cache',
 			'annotations.reader' => 'Doctrine\Common\Annotations\Reader',
 			'annotations.reflectionReader' => 'Doctrine\Common\Annotations\AnnotationReader',
-			'application.1' => 'App\Presenters\SearchPresenter',
-			'application.2' => 'App\Presenters\Error4xxPresenter',
-			'application.3' => 'App\Presenters\ErrorPresenter',
-			'application.4' => 'App\Presenters\HomepagePresenter',
-			'application.5' => 'App\Presenters\PostPresenter',
-			'application.6' => 'App\Presenters\SignPresenter',
-			'application.7' => 'KdybyModule\CliPresenter',
-			'application.8' => 'NetteModule\ErrorPresenter',
-			'application.9' => 'NetteModule\MicroPresenter',
+			'application.1' => 'App\Module\Admin\Presenters\AdminPresenter',
+			'application.10' => 'NetteModule\MicroPresenter',
+			'application.2' => 'App\Module\Frontend\Presenters\SearchPresenter',
+			'application.3' => 'App\Module\Frontend\Presenters\HomepagePresenter',
+			'application.4' => 'App\Module\Frontend\Presenters\PostPresenter',
+			'application.5' => 'App\Module\Frontend\Presenters\SignPresenter',
+			'application.6' => 'App\Module\Error\Presenters\Error4xxPresenter',
+			'application.7' => 'App\Module\Error\Presenters\ErrorPresenter',
+			'application.8' => 'KdybyModule\CliPresenter',
+			'application.9' => 'NetteModule\ErrorPresenter',
 			'application.application' => 'Nette\Application\Application',
 			'application.linkGenerator' => 'Nette\Application\LinkGenerator',
 			'application.presenterFactory' => 'Nette\Application\IPresenterFactory',
@@ -415,9 +414,9 @@ class Container_45f071f93a extends Nette\DI\Container
 		],
 		'tags' => [
 			'inject' => [
-				'66_App_AdminModule_Presenters_AdminPresenter' => TRUE,
 				'annotations.cache.annotations' => FALSE,
 				'application.1' => TRUE,
+				'application.10' => TRUE,
 				'application.2' => TRUE,
 				'application.3' => TRUE,
 				'application.4' => TRUE,
@@ -455,16 +454,16 @@ class Container_45f071f93a extends Nette\DI\Container
 				'doctrine.default.ormConfiguration' => FALSE,
 			],
 			'nette.presenter' => [
-				'66_App_AdminModule_Presenters_AdminPresenter' => 'App\AdminModule\Presenters\AdminPresenter',
-				'application.1' => 'App\Presenters\SearchPresenter',
-				'application.2' => 'App\Presenters\Error4xxPresenter',
-				'application.3' => 'App\Presenters\ErrorPresenter',
-				'application.4' => 'App\Presenters\HomepagePresenter',
-				'application.5' => 'App\Presenters\PostPresenter',
-				'application.6' => 'App\Presenters\SignPresenter',
-				'application.7' => 'KdybyModule\CliPresenter',
-				'application.8' => 'NetteModule\ErrorPresenter',
-				'application.9' => 'NetteModule\MicroPresenter',
+				'application.1' => 'App\Module\Admin\Presenters\AdminPresenter',
+				'application.10' => 'NetteModule\MicroPresenter',
+				'application.2' => 'App\Module\Frontend\Presenters\SearchPresenter',
+				'application.3' => 'App\Module\Frontend\Presenters\HomepagePresenter',
+				'application.4' => 'App\Module\Frontend\Presenters\PostPresenter',
+				'application.5' => 'App\Module\Frontend\Presenters\SignPresenter',
+				'application.6' => 'App\Module\Error\Presenters\Error4xxPresenter',
+				'application.7' => 'App\Module\Error\Presenters\ErrorPresenter',
+				'application.8' => 'KdybyModule\CliPresenter',
+				'application.9' => 'NetteModule\ErrorPresenter',
 			],
 			'kdyby.console.command' => [
 				'doctrine.cli.0' => TRUE,
@@ -535,36 +534,9 @@ class Container_45f071f93a extends Nette\DI\Container
 
 
 	/**
-	 * @return App\AdminModule\Presenters\AdminPresenter
-	 */
-	public function createService__66_App_AdminModule_Presenters_AdminPresenter()
-	{
-		$service = new App\AdminModule\Presenters\AdminPresenter;
-		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
-			$this->getService('routing.router'), $this->getService('http.request'),
-			$this->getService('http.response'), $this->getService('session.session'),
-			$this->getService('security.user'), $this->getService('latte.templateFactory'));
-		$service->users = $this->getService('69_App_Model_Repository_Users');
-		$service->registerForm = $this->getService('74_Component_IRegisterFormFactory');
-		$service->posts = $this->getService('68_App_Model_Repository_Posts');
-		$service->postForm = $this->getService('73_Component_IPostFormFactory');
-		$service->passwordChangeForm = $this->getService('72_Component_IPasswordChangeFormFactory');
-		$service->em = $this->getService('doctrine.default.entityManager');
-		$service->categoryForm = $this->getService('70_Component_ICategoryFormFactory');
-		$service->categories = $this->getService('67_App_Model_Repository_Categories');
-		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\AdminModule\Presenters\AdminPresenter', 'onShutdown'],
-			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\AdminModule\Presenters\AdminPresenter', 'onAnchor'],
-			$service->onAnchor, NULL, FALSE);
-		return $service;
-	}
-
-
-	/**
 	 * @return App\Model\Repository\Categories
 	 */
-	public function createService__67_App_Model_Repository_Categories()
+	public function createService__66_App_Model_Repository_Categories()
 	{
 		$service = new App\Model\Repository\Categories($this->getService('doctrine.default.entityManager'));
 		return $service;
@@ -574,7 +546,7 @@ class Container_45f071f93a extends Nette\DI\Container
 	/**
 	 * @return App\Model\Repository\Posts
 	 */
-	public function createService__68_App_Model_Repository_Posts()
+	public function createService__67_App_Model_Repository_Posts()
 	{
 		$service = new App\Model\Repository\Posts($this->getService('doctrine.default.entityManager'));
 		return $service;
@@ -584,7 +556,7 @@ class Container_45f071f93a extends Nette\DI\Container
 	/**
 	 * @return App\Model\Repository\Users
 	 */
-	public function createService__69_App_Model_Repository_Users()
+	public function createService__68_App_Model_Repository_Users()
 	{
 		$service = new App\Model\Repository\Users($this->getService('doctrine.default.entityManager'));
 		return $service;
@@ -594,45 +566,45 @@ class Container_45f071f93a extends Nette\DI\Container
 	/**
 	 * @return Component\ICategoryFormFactory
 	 */
-	public function createService__70_Component_ICategoryFormFactory()
+	public function createService__69_Component_ICategoryFormFactory()
 	{
-		return new Container_45f071f93a_Component_ICategoryFormFactoryImpl_70_Component_ICategoryFormFactory($this);
+		return new Container_45f071f93a_Component_ICategoryFormFactoryImpl_69_Component_ICategoryFormFactory($this);
 	}
 
 
 	/**
 	 * @return Component\ILoginFormFactory
 	 */
-	public function createService__71_Component_ILoginFormFactory()
+	public function createService__70_Component_ILoginFormFactory()
 	{
-		return new Container_45f071f93a_Component_ILoginFormFactoryImpl_71_Component_ILoginFormFactory($this);
+		return new Container_45f071f93a_Component_ILoginFormFactoryImpl_70_Component_ILoginFormFactory($this);
 	}
 
 
 	/**
 	 * @return Component\IPasswordChangeFormFactory
 	 */
-	public function createService__72_Component_IPasswordChangeFormFactory()
+	public function createService__71_Component_IPasswordChangeFormFactory()
 	{
-		return new Container_45f071f93a_Component_IPasswordChangeFormFactoryImpl_72_Component_IPasswordChangeFormFactory($this);
+		return new Container_45f071f93a_Component_IPasswordChangeFormFactoryImpl_71_Component_IPasswordChangeFormFactory($this);
 	}
 
 
 	/**
 	 * @return Component\IPostFormFactory
 	 */
-	public function createService__73_Component_IPostFormFactory()
+	public function createService__72_Component_IPostFormFactory()
 	{
-		return new Container_45f071f93a_Component_IPostFormFactoryImpl_73_Component_IPostFormFactory($this);
+		return new Container_45f071f93a_Component_IPostFormFactoryImpl_72_Component_IPostFormFactory($this);
 	}
 
 
 	/**
 	 * @return Component\IRegisterFormFactory
 	 */
-	public function createService__74_Component_IRegisterFormFactory()
+	public function createService__73_Component_IRegisterFormFactory()
 	{
-		return new Container_45f071f93a_Component_IRegisterFormFactoryImpl_74_Component_IRegisterFormFactory($this);
+		return new Container_45f071f93a_Component_IRegisterFormFactoryImpl_73_Component_IRegisterFormFactory($this);
 	}
 
 
@@ -641,7 +613,7 @@ class Container_45f071f93a extends Nette\DI\Container
 	 */
 	public function createService__Authenticator()
 	{
-		$service = new Model\Authenticator($this->getService('69_App_Model_Repository_Users'));
+		$service = new Model\Authenticator($this->getService('68_App_Model_Repository_Users'));
 		return $service;
 	}
 
@@ -692,111 +664,149 @@ class Container_45f071f93a extends Nette\DI\Container
 
 
 	/**
-	 * @return App\Presenters\SearchPresenter
+	 * @return App\Module\Admin\Presenters\AdminPresenter
 	 */
 	public function createServiceApplication__1()
 	{
-		$service = new App\Presenters\SearchPresenter;
+		$service = new App\Module\Admin\Presenters\AdminPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
 			$this->getService('security.user'), $this->getService('latte.templateFactory'));
-		$service->posts = $this->getService('68_App_Model_Repository_Posts');
+		$service->users = $this->getService('68_App_Model_Repository_Users');
+		$service->registerForm = $this->getService('73_Component_IRegisterFormFactory');
+		$service->posts = $this->getService('67_App_Model_Repository_Posts');
+		$service->postForm = $this->getService('72_Component_IPostFormFactory');
+		$service->passwordChangeForm = $this->getService('71_Component_IPasswordChangeFormFactory');
+		$service->em = $this->getService('doctrine.default.entityManager');
+		$service->categoryForm = $this->getService('69_Component_ICategoryFormFactory');
+		$service->categories = $this->getService('66_App_Model_Repository_Categories');
 		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Presenters\SearchPresenter', 'onShutdown'],
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Admin\Presenters\AdminPresenter', 'onShutdown'],
 			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Presenters\SearchPresenter', 'onAnchor'],
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Admin\Presenters\AdminPresenter', 'onAnchor'],
 			$service->onAnchor, NULL, FALSE);
 		return $service;
 	}
 
 
 	/**
-	 * @return App\Presenters\Error4xxPresenter
+	 * @return NetteModule\MicroPresenter
+	 */
+	public function createServiceApplication__10()
+	{
+		$service = new NetteModule\MicroPresenter($this, $this->getService('http.request'),
+			$this->getService('routing.router'));
+		return $service;
+	}
+
+
+	/**
+	 * @return App\Module\Frontend\Presenters\SearchPresenter
 	 */
 	public function createServiceApplication__2()
 	{
-		$service = new App\Presenters\Error4xxPresenter;
+		$service = new App\Module\Frontend\Presenters\SearchPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
 			$this->getService('security.user'), $this->getService('latte.templateFactory'));
+		$service->posts = $this->getService('67_App_Model_Repository_Posts');
 		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Presenters\Error4xxPresenter', 'onShutdown'],
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\SearchPresenter', 'onShutdown'],
 			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Presenters\Error4xxPresenter', 'onAnchor'],
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\SearchPresenter', 'onAnchor'],
 			$service->onAnchor, NULL, FALSE);
 		return $service;
 	}
 
 
 	/**
-	 * @return App\Presenters\ErrorPresenter
+	 * @return App\Module\Frontend\Presenters\HomepagePresenter
 	 */
 	public function createServiceApplication__3()
 	{
-		$service = new App\Presenters\ErrorPresenter($this->getService('tracy.logger'));
+		$service = new App\Module\Frontend\Presenters\HomepagePresenter;
+		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
+			$this->getService('routing.router'), $this->getService('http.request'),
+			$this->getService('http.response'), $this->getService('session.session'),
+			$this->getService('security.user'), $this->getService('latte.templateFactory'));
+		$service->posts = $this->getService('67_App_Model_Repository_Posts');
+		$service->invalidLinkMode = 5;
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\HomepagePresenter', 'onShutdown'],
+			$service->onShutdown, NULL, FALSE);
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\HomepagePresenter', 'onAnchor'],
+			$service->onAnchor, NULL, FALSE);
 		return $service;
 	}
 
 
 	/**
-	 * @return App\Presenters\HomepagePresenter
+	 * @return App\Module\Frontend\Presenters\PostPresenter
 	 */
 	public function createServiceApplication__4()
 	{
-		$service = new App\Presenters\HomepagePresenter;
+		$service = new App\Module\Frontend\Presenters\PostPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
 			$this->getService('security.user'), $this->getService('latte.templateFactory'));
-		$service->posts = $this->getService('68_App_Model_Repository_Posts');
+		$service->posts = $this->getService('67_App_Model_Repository_Posts');
+		$service->categories = $this->getService('66_App_Model_Repository_Categories');
 		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Presenters\HomepagePresenter', 'onShutdown'],
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\PostPresenter', 'onShutdown'],
 			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Presenters\HomepagePresenter', 'onAnchor'],
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\PostPresenter', 'onAnchor'],
 			$service->onAnchor, NULL, FALSE);
 		return $service;
 	}
 
 
 	/**
-	 * @return App\Presenters\PostPresenter
+	 * @return App\Module\Frontend\Presenters\SignPresenter
 	 */
 	public function createServiceApplication__5()
 	{
-		$service = new App\Presenters\PostPresenter;
+		$service = new App\Module\Frontend\Presenters\SignPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
 			$this->getService('security.user'), $this->getService('latte.templateFactory'));
-		$service->posts = $this->getService('68_App_Model_Repository_Posts');
-		$service->categories = $this->getService('67_App_Model_Repository_Categories');
+		$service->loginForm = $this->getService('70_Component_ILoginFormFactory');
 		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Presenters\PostPresenter', 'onShutdown'],
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\SignPresenter', 'onShutdown'],
 			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Presenters\PostPresenter', 'onAnchor'],
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Frontend\Presenters\SignPresenter', 'onAnchor'],
 			$service->onAnchor, NULL, FALSE);
 		return $service;
 	}
 
 
 	/**
-	 * @return App\Presenters\SignPresenter
+	 * @return App\Module\Error\Presenters\Error4xxPresenter
 	 */
 	public function createServiceApplication__6()
 	{
-		$service = new App\Presenters\SignPresenter;
+		$service = new App\Module\Error\Presenters\Error4xxPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
 			$this->getService('security.user'), $this->getService('latte.templateFactory'));
-		$service->loginForm = $this->getService('71_Component_ILoginFormFactory');
 		$service->invalidLinkMode = 5;
-		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Presenters\SignPresenter', 'onShutdown'],
+		$service->onShutdown = $this->getService('events.manager')->createEvent(['App\Module\Error\Presenters\Error4xxPresenter', 'onShutdown'],
 			$service->onShutdown, NULL, FALSE);
-		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Presenters\SignPresenter', 'onAnchor'],
+		$service->onAnchor = $this->getService('events.manager')->createEvent(['App\Module\Error\Presenters\Error4xxPresenter', 'onAnchor'],
 			$service->onAnchor, NULL, FALSE);
+		return $service;
+	}
+
+
+	/**
+	 * @return App\Module\Error\Presenters\ErrorPresenter
+	 */
+	public function createServiceApplication__7()
+	{
+		$service = new App\Module\Error\Presenters\ErrorPresenter($this->getService('tracy.logger'));
 		return $service;
 	}
 
@@ -804,7 +814,7 @@ class Container_45f071f93a extends Nette\DI\Container
 	/**
 	 * @return KdybyModule\CliPresenter
 	 */
-	public function createServiceApplication__7()
+	public function createServiceApplication__8()
 	{
 		$service = new KdybyModule\CliPresenter;
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
@@ -824,20 +834,9 @@ class Container_45f071f93a extends Nette\DI\Container
 	/**
 	 * @return NetteModule\ErrorPresenter
 	 */
-	public function createServiceApplication__8()
-	{
-		$service = new NetteModule\ErrorPresenter($this->getService('tracy.logger'));
-		return $service;
-	}
-
-
-	/**
-	 * @return NetteModule\MicroPresenter
-	 */
 	public function createServiceApplication__9()
 	{
-		$service = new NetteModule\MicroPresenter($this, $this->getService('http.request'),
-			$this->getService('routing.router'));
+		$service = new NetteModule\ErrorPresenter($this->getService('tracy.logger'));
 		return $service;
 	}
 
@@ -888,7 +887,7 @@ class Container_45f071f93a extends Nette\DI\Container
 	public function createServiceApplication__presenterFactory()
 	{
 		$service = new Nette\Application\PresenterFactory(new Nette\Bridges\ApplicationDI\PresenterFactoryCallback($this, 5, '/home/radek/MEGA/projects/blog/app/../temp/cache/Nette%5CBridges%5CApplicationDI%5CApplicationExtension'));
-		$service->setMapping(['*' => 'App\*Module\Presenters\*Presenter']);
+		$service->setMapping(['*' => 'App\Module\*\Presenters\*Presenter']);
 		return $service;
 	}
 
@@ -1666,7 +1665,7 @@ class Container_45f071f93a extends Nette\DI\Container
 
 
 
-final class Container_45f071f93a_Component_ICategoryFormFactoryImpl_70_Component_ICategoryFormFactory implements Component\ICategoryFormFactory
+final class Container_45f071f93a_Component_ICategoryFormFactoryImpl_69_Component_ICategoryFormFactory implements Component\ICategoryFormFactory
 {
 	private $container;
 
@@ -1691,7 +1690,7 @@ final class Container_45f071f93a_Component_ICategoryFormFactoryImpl_70_Component
 
 
 
-final class Container_45f071f93a_Component_ILoginFormFactoryImpl_71_Component_ILoginFormFactory implements Component\ILoginFormFactory
+final class Container_45f071f93a_Component_ILoginFormFactoryImpl_70_Component_ILoginFormFactory implements Component\ILoginFormFactory
 {
 	private $container;
 
@@ -1716,7 +1715,7 @@ final class Container_45f071f93a_Component_ILoginFormFactoryImpl_71_Component_IL
 
 
 
-final class Container_45f071f93a_Component_IPasswordChangeFormFactoryImpl_72_Component_IPasswordChangeFormFactory implements Component\IPasswordChangeFormFactory
+final class Container_45f071f93a_Component_IPasswordChangeFormFactoryImpl_71_Component_IPasswordChangeFormFactory implements Component\IPasswordChangeFormFactory
 {
 	private $container;
 
@@ -1739,7 +1738,7 @@ final class Container_45f071f93a_Component_IPasswordChangeFormFactoryImpl_72_Com
 
 
 
-final class Container_45f071f93a_Component_IPostFormFactoryImpl_73_Component_IPostFormFactory implements Component\IPostFormFactory
+final class Container_45f071f93a_Component_IPostFormFactoryImpl_72_Component_IPostFormFactory implements Component\IPostFormFactory
 {
 	private $container;
 
@@ -1753,7 +1752,7 @@ final class Container_45f071f93a_Component_IPostFormFactoryImpl_73_Component_IPo
 	public function create(): Component\PostForm
 	{
 		$service = new Component\PostForm($this->container->getService('doctrine.default.entityManager'),
-			$this->container->getService('67_App_Model_Repository_Categories'));
+			$this->container->getService('66_App_Model_Repository_Categories'));
 		$service->onPost = $this->container->getService('events.manager')->createEvent(['Component\PostForm', 'onPost'],
 			$service->onPost, NULL, FALSE);
 		$service->onAnchor = $this->container->getService('events.manager')->createEvent(['Component\PostForm', 'onAnchor'],
@@ -1765,7 +1764,7 @@ final class Container_45f071f93a_Component_IPostFormFactoryImpl_73_Component_IPo
 
 
 
-final class Container_45f071f93a_Component_IRegisterFormFactoryImpl_74_Component_IRegisterFormFactory implements Component\IRegisterFormFactory
+final class Container_45f071f93a_Component_IRegisterFormFactoryImpl_73_Component_IRegisterFormFactory implements Component\IRegisterFormFactory
 {
 	private $container;
 

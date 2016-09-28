@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Module\Frontend\Presenters;
 
 use App\Model\Repository\Posts;
 
-class SearchPresenter extends BasePresenter
+class SearchPresenter extends \App\Module\Base\Presenters\BasePresenter
 {
 
 	/**
