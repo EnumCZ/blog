@@ -32,6 +32,7 @@ class RouterFactory
 		$router[] = new Route('post', 'Frontend:Post:default');
 		$router[] = new Route('sign/in', 'Frontend:Sign:in');
 		$router[] = new Route('sign/out', 'Frontend:Sign:out');
+		$router[] = new Route('search', 'Frontend:Search:default');
 
 		//$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;

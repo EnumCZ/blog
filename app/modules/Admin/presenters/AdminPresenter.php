@@ -143,7 +143,7 @@ class AdminPresenter extends \App\Module\Base\Presenters\BasePresenter
 
 	public function renderEditUser($user_id) 
 	{
-		$this->template->user_info = $this->user;
+		$user = $this->users->findOneBy(['id' => $user_id]);
 	}
 
 
